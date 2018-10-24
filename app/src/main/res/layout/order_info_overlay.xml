@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<taxi.android.client.feature.order.ui.TopOverlayView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/overlay"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="-5.0dip"
+    android:alpha="0.0"
+    android:background="@color/grey_80_alpha"
+    android:contentDescription="@string/accessibility_go_back"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/frameFarePriceDisplay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/fare_price_display" />
+    </FrameLayout>
+</taxi.android.client.feature.order.ui.TopOverlayView>

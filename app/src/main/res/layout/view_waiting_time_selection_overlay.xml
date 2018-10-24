@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mytaxi.passenger.features.fleettype.pooling.matchradar.ui.WaitingTimeSelectionOverlayView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingBottom="8.0dip">
+
+    <ImageView
+        android:id="@+id/waitingTimeSelectionCloseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_marginTop="12.0dip"
+        android:background="?android:selectableItemBackground"
+        app:layout_constraintEnd_toStartOf="@+id/waitingTimeSelectionViewTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close_view" />
+
+    <TextView
+        android:id="@+id/waitingTimeSelectionViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8.0dip"
+        android:layout_marginRight="8.0dip"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:textColor="@color/deep_cyan"
+        android:textSize="16.0sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/waitingTimeSelectionCloseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waitingTimeSelectionCloseButton" />
+
+    <View
+        android:id="@+id/space"
+        android:layout_width="0.0dip"
+        android:layout_height="1.0dip"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="16.0dip"
+        android:layout_marginTop="12.0dip"
+        android:background="@color/neutral_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waitingTimeSelectionCloseButton" />
+
+    <TextView
+        android:id="@+id/waitingTimeSelectionInfoText"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="16.0dip"
+        android:layout_marginTop="16.0dip"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="6.0sp"
+        android:textColor="@color/blue_grey"
+        android:textSize="14.0sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space" />
+
+    <LinearLayout
+        android:id="@+id/waitingTimeList"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24.0dip"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waitingTimeSelectionInfoText" />
+
+    <TextView
+        android:id="@+id/waitingTimeSelectionOrderButton"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_marginLeft="8.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_marginTop="16.0dip"
+        android:background="@drawable/btn_yellow"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textColor="@color/deep_cyan"
+        android:textSize="16.0sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waitingTimeList" />
+</com.mytaxi.passenger.features.fleettype.pooling.matchradar.ui.WaitingTimeSelectionOverlayView>

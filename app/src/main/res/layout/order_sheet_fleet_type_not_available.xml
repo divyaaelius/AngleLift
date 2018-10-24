@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/notAvailableTitleView"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_marginTop="18.0dip"
+        android:fontFamily="sans-serif"
+        android:maxLines="1"
+        android:textColor="@color/dark_grey_blue"
+        android:textSize="20.0sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/notAvailableImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/notAvailableInfoText"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24.0dip"
+        android:layout_marginRight="20.0dip"
+        android:layout_marginTop="8.0dip"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="6.0sp"
+        android:textColor="@color/dark_grey_blue"
+        android:textSize="14.0sp"
+        app:layout_constraintEnd_toStartOf="@+id/notAvailableImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notAvailableTitleView" />
+
+    <ImageView
+        android:id="@+id/notAvailableImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginLeft="8.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/showTimeSlotsTextView"
+        style="@style/button_dark_grey_blue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16.0dip"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="16.0dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notAvailableInfoText"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_chainStyle="spread" />
+</android.support.constraint.ConstraintLayout>

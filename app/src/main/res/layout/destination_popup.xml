@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/marg_fivedp" >
+
+            <AutoCompleteTextView
+                android:id="@+id/etPopupDestination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:drawableLeft="@drawable/ic_search_icon"
+                android:drawablePadding="5dp"
+                android:hint="@string/search_location"
+                android:imeOptions="actionDone"
+                android:inputType="textNoSuggestions"
+                android:paddingLeft="10dp"
+                android:paddingRight="2dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_small" >
+
+                <requestFocus />
+            </AutoCompleteTextView>
+
+            <ImageButton
+                android:id="@+id/imgClearDest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:padding="@dimen/marg_tendp"
+                android:src="@drawable/ic_close_black"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/divider" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marg_tendp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/layoutHomeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marg_tendp"
+                    android:layout_marginRight="@dimen/marg_fivedp"
+                    android:layout_marginTop="@dimen/marg_fivedp"
+                    android:src="@drawable/pin_des" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <com.angellift.helper.MyFontTextViewMedium
+                        android:id="@+id/tvLblHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="2dp"
+                        android:singleLine="true"
+                        android:text="@string/home"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <com.angellift.helper.MyFontTextView
+                        android:id="@+id/tvHomeAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="2dp"
+                        android:singleLine="true"
+                        android:text="@string/home"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_small" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marg_tendp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:id="@+id/layoutWorkText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marg_tendp"
+                    android:layout_marginRight="@dimen/marg_fivedp"
+                    android:layout_marginTop="@dimen/marg_fivedp"
+                    android:src="@drawable/pin_des" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <com.angellift.helper.MyFontTextViewMedium
+                        android:id="@+id/tvLblHome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="2dp"
+                        android:singleLine="true"
+                        android:text="@string/work"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <com.angellift.helper.MyFontTextView
+                        android:id="@+id/tvWorkAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvLblHome"
+                        android:background="@null"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="2dp"
+                        android:singleLine="true"
+                        android:text="@string/work"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_small" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCloseDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:text="@string/close"
+        />
+</RelativeLayout>

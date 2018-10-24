@@ -1,0 +1,125 @@
+<resources>
+    <string name="app_name">Angle Lift</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    //22/10/18
+
+    <string name="action_right_drawer">Right Drawer</string>
+
+    //shivani 24/09/2018
+    <string name="mobile">Mobile No.</string>
+    <string name="password">Password</string>
+    <string name="password_conf">Conform Password</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="email">Email ID</string>
+    <string name="home">Home</string>
+
+    //shivani 25/09/2018
+    <string name="accessibility_go_back">Go Back</string>
+    <string name="book_now">Book Now</string>
+    <string name="book_later">Schedule Trip</string>
+
+    <string name="order">Order Now</string>
+    <string name="cars">Cars</string>
+    <string name="payments">Payments</string>
+    <string name="pickup">Pick Date &amp; Time</string>
+    <string name="date">Pick Date</string>
+    <string name="time">Pick Time</string>
+    <string name="cash">Cash</string>
+    <string name="card">Card</string>
+
+    // divya 24/9/2018
+    //
+    <string name="map_api_key_path1">AIzaSyCfO6PWk2TmS59qgkwkKOse7YiJUQ1LK40</string>
+    <string name="map_api_key_path">AIzaSyDE2GVFs0rOVdzoN_FmkhxF_udhNbwyCaM</string>
+
+    <string name="map_api_key_place">AIzaSyDE2GVFs0rOVdzoN_FmkhxF_udhNbwyCaM</string>
+
+
+    <string name="pick">Pickup Location</string>
+    <string name="close">Close</string>
+    <string name="confirm">Confirm</string>
+    <string name="create_calendar_title">Create calendar event</string>
+    <string name="decline">Decline</string>
+    <string name="drop">Drop Location</string>
+    <string name="fareest">Fare Estimate</string>
+    <string name="icon_location">location</string>
+    <string name="icon_drop">Drop</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="search_location">Search Location</string>
+
+
+    //
+    <string name="dialog_no_internet">No Internet</string>
+    <string name="dialog_no_gps">No GPS</string>
+    <string name="dialog_no_location_service">Please turn on location service from settings, must press on/off toggle and agree to access location and restart an app.\nNote:if you have already done choices with disagree and dont show dialog again then location dialog not show when you press on/off toggle button.to solve this problem you must clear all setting preferences.</string>
+    <string name="dialog_no_location_service_title">Locaton service is off.</string>
+    <string name="dialog_no_gps_messgae">Seems like you have not started your location service.</string>
+    <string name="dialog_enable_gps">Enable GPS</string>
+    <string name="dialog_enable_location_service">Go to location service</string>
+    <string name="dialog_enable_3g">Enable 3G</string>
+    <string name="dialog_enable_wifi">Enable WIFI</string>
+    <string name="dialog_exit">Exit</string>
+
+    <string name="text_source_pin_title">Pick me from here</string>
+    <string name="text_destination_pin_title">Destination</string>
+    <string name="work">Work Address</string>
+    <string name="text_unable_get_source">Unable to get source location, please try again</string>
+    <string name="text_unable_get_destination">Unable to get destination location, please try again</string>
+
+    <string name="cust_nm">Customer Name</string>
+    <string name="cust_pick_add">Customer Pickup Adress</string>
+    <string name="pick_time">Pickup Time</string>
+    <string name="pick_km">Distance</string>
+    <string name="trip_start">Swipe to Start Trip   </string>
+    <string name="total_rs">Total Rs.</string>
+    <string name="total_dis">Total Distance</string>
+    <string name="trip_cost">Trip Cost</string>
+    <string name="discount">Discount</string>
+    <string name="total">Total</string>
+    <string name="pickup_place">Pickup Place</string>
+    <string name="drop_place">Drop Place</string>
+    <string name="rs">Rs.</string>
+    <string name="to">TO</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="car_details">Car Details</string>
+    <string name="cancel_request">Cancel Request</string>
+    <string name="text_schedule_trip">Schedule trip</string>
+    <string name="text_contacting">Contacting nearby driver</string>
+    <string name="text_waiting_for_confirm">WAITING FOR DRIVER TO CONFIRM YOUR TRIP</string>
+    <string name="text_creating_request">CREATING REQUEST</string>
+    <string name="text_create_trip_for_onward_time1">You can create trip for onward time only111.</string>
+    <string name="text_create_trip_for_onward_time2">You can create trip for onward time only222.</string>
+    <string name="text_create_trip_for_onward_time3">You can create trip for onward time only333.</string>
+    <string name="text_create_trip_for_onward_time4">You can create trip for onward time only444.</string>
+
+    <string name="text_create_request_48_hrs">You can create request upto 48 hours only.</string>
+    <string name="text_select_time">Select time</string>
+
+    // 19-10-2018
+
+    <string name="address">Address</string>
+    <string name="dob"> Date of Birth</string>
+    <string name="eta">ETA</string>
+    <string name="promo_code"> Code</string>
+
+
+    // shivani 19/10/2018
+    <string name="timeonly">Time</string>
+    <string name="fair_estimate">Fair Estimate</string>`
+    <string name="fair_distance">Fair Distance</string>
+    <string name="Success">Success</string>
+    <string name="Loading">Loading</string>
+
+
+</resources>

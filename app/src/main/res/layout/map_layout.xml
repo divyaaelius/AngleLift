@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white">
+<!--
+    <FrameLayout
+        android:id="@+id/topSnackBarAnchor"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/slidingView">
+
+        <taxi.android.client.feature.map.ui.FocusedZoomTouchWrapper
+            android:id="@+id/mapContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:contentDescription="@string/accessibility_move_map"
+            android:focusable="false">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="taxi.android.client.feature.map.ui.MapActivity"
+                class="taxi.android.client.feature.map.ui.MapFragment"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+        </taxi.android.client.feature.map.ui.FocusedZoomTouchWrapper>
+
+        <taxi.android.client.feature.pickupdestinationannotations.ui.PickupDestinationAnnotationsView
+            android:id="@+id/pickUpDestinationAnnotationView"
+            android:layout_width="0.0dip"
+            android:layout_height="0.0dip" />
+
+        <taxi.android.client.feature.order.ui.PassengerAnnotationView
+            android:id="@+id/vAddressIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/accessibility_passenger_marker" />
+
+        <View
+            android:id="@+id/mapOverlay"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:focusable="true"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/btnMenu"
+        android:layout_width="@dimen/btn_size_map"
+        android:layout_height="@dimen/btn_size_map"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/default_padding"
+        android:layout_marginTop="@dimen/margin_fitting_below_status_bar"
+        android:background="@drawable/map_button_background"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="center"
+        android:src="@drawable/ic_profile"
+        android:tint="@color/primary_tint" />
+
+    <taxi.android.client.feature.fare.ui.FareBubble xmlns:info="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/vFareBubble"
+        style="@style/eta_visibility_top"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btn_size_map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="88.0dip"
+        android:layout_marginRight="88.0dip"
+        android:layout_marginTop="@dimen/margin_fitting_below_status_bar"
+        android:background="@drawable/map_element_background"
+        android:visibility="gone"
+        info:infoIcon="@drawable/ic_general_info"
+        info:textColorLine1="@color/text_dark"
+        info:textColorLine2="@color/text_secondary" />
+
+    <taxi.android.client.feature.order.ui.OrderSheetSlidingView
+        android:id="@+id/slidingView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="64.0dip"
+        toggle:detailView="@layout/layout_booking_options"
+        toggle:dragView="@layout/order_sheet_container" />
+
+    <RelativeLayout
+        android:id="@+id/layoutOrderSection"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/txtOrderTaxi"
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="@dimen/default_padding_half"
+            android:layout_toLeftOf="@+id/waitingTimeSelectionButton"
+            android:background="@drawable/btn_yellow"
+            android:gravity="center" />
+
+        <com.mytaxi.passenger.features.fleettype.pooling.matchradar.ui.WaitingTimeSelectionButton
+            android:id="@+id/waitingTimeSelectionButton"
+            android:layout_width="48.0dip"
+            android:layout_height="48.0dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="8.0dip"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/txtWalkingDirections"
+        style="@style/ListItem"
+        android:layout_above="@+id/slidingView"
+        android:background="@drawable/bg_list_item_clickable_with_alpha"
+        android:drawableLeft="@drawable/ic_airport_destination"
+        android:drawableStart="@drawable/ic_airport_destination"
+        android:fontFamily="sans-serif-light"
+        android:maxLines="1"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/dividerWalkingDirections"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_below="@+id/txtWalkingDirections"
+        android:background="@drawable/divider"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imgLocate"
+        android:layout_width="@dimen/btn_size_map"
+        android:layout_height="@dimen/btn_size_map"
+        android:layout_above="@+id/txtWalkingDirections"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/default_padding"
+        android:background="@drawable/map_button_background"
+        android:contentDescription="@string/app_name"
+        android:scaleType="center"
+        android:src="@drawable/ic_location_active"
+        android:tint="@color/primary_tint"
+        android:visibility="visible" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="4.0dip"
+        android:layout_above="@+id/txtWalkingDirections"
+        android:background="@drawable/slide_view_shadow" />
+
+    <com.mytaxi.android.view.MultiOptionToggle
+        android:id="@+id/fleetTypeToggle"
+        android:layout_width="0.0dip"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_above="@+id/vNoClickZoneBelowToggle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/default_padding_quarter"
+        android:layout_marginRight="@dimen/default_padding_quarter"
+        android:layout_marginTop="@dimen/default_padding_quarter"
+        android:visibility="gone"
+        toggle:optionItemDrawablePadding="@dimen/default_padding_eighth"
+        toggle:optionItemPaddingBottom="@dimen/default_padding_half"
+        toggle:optionItemPaddingLeft="@dimen/default_padding"
+        toggle:optionItemPaddingRight="@dimen/default_padding"
+        toggle:optionItemPaddingTop="@dimen/default_padding_half"
+        toggle:optionItemTextColorActive="@color/white"
+        toggle:optionItemTextColorInactive="@color/tint_secondary"
+        toggle:optionItemTextSize="@dimen/textSizeDefault"
+        toggle:progressPaddingBottom="0.0dip"
+        toggle:progressPaddingLeft="@dimen/multi_toggle_progress_padding_horizontal"
+        toggle:progressPaddingRight="@dimen/multi_toggle_progress_padding_horizontal"
+        toggle:progressPaddingTop="0.0dip"
+        toggle:togglePadding="3.0dip"
+        toggle:toggleProgressColor="@color/dark_sky_blue"
+        toggle:toggleSelectorDrawable="@drawable/pooling_toggle_thumb" />
+
+    <View
+        android:id="@+id/vNoClickZoneBelowToggle"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/default_padding"
+        android:layout_above="@+id/txtWalkingDirections"
+        android:clickable="true" />
+
+    <include
+        layout="@layout/order_info_overlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/slidingView" />
+
+    <RelativeLayout
+        android:id="@+id/navExpandedState"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgBackExpanded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_icon_transparent"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/default_padding"
+            android:src="@drawable/ic_back"
+            android:tint="@color/white" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/navigationContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/margin_default"
+        android:layout_marginTop="@dimen/status_bar_height"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="false"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/multibookingLayout"
+            layout="@layout/layout_multibooking"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_padding_half"
+            android:layout_marginTop="@dimen/default_padding"
+            android:clipToPadding="false" />
+
+        <FrameLayout
+            android:id="@+id/navigationStackFragmentHolder"
+            style="@style/navigation_stack"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-8.0dip" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/fleetTypeNotAvailableView"
+        layout="@layout/order_sheet_fleet_type_not_available"
+        android:layout_width="fill_parent"
+        android:layout_height="224.0dip"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/waitingTimeSelectionOverlayView"
+        layout="@layout/view_waiting_time_selection_overlay"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txtServer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10.0dip"
+        android:textColor="@color/white"
+        android:visibility="gone" />
+
+    <com.mytaxi.passenger.shared.view.bottomsheet.BottomSheet
+        android:id="@+id/containerBottomSheet"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />-->
+</RelativeLayout>
