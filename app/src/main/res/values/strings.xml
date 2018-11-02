@@ -124,5 +124,13 @@
     <string name="Success">Success</string>
     <string name="Loading">Loading</string>
 
+    // changes
+   <!-- <string name="timeonly">Time</string>
+    <string name="fair_estimate">Fair Estimate</string>`
+    <string name="fair_distance">Fair Distance</string>
+    <string name="Success">Success</string>
+    <string name="Loading">Loading</string>-->
+
+
 
 </resources>
