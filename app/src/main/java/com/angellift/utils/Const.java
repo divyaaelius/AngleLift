@@ -151,6 +151,7 @@ public class Const {
         public final String PROMO_BONUS = "promo_bonus";
         public final String KM = "km";
 
+        public static final String OTP_NUMBER = "otp_number";
 
 
     }

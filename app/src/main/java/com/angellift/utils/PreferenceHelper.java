@@ -40,6 +40,23 @@ public class PreferenceHelper {
     private final String CURRENT_TRIP_TIME = "time";
     private final String STRIPE_PUBLISHABLE_KEY="stripe_publishable_key";
     private final String BROWSER_KEY="browser_key";
+    private final String OTP_NUMBER="otp_number";
+
+    public PreferenceHelper(Context context) {
+        app_prefs = context.getSharedPreferences(Const.PREF_NAME,
+                Context.MODE_PRIVATE);
+//		this.context = context;
+    }
+    public void setOtpnumber(String otpnumber)
+    {
+        Editor edit=app_prefs.edit();
+        edit.putString(OTP_NUMBER,otpnumber);
+        edit.commit();
+    }
+    public String getOtpNumber()
+    {
+        return app_prefs.getString(OTP_NUMBER,"");
+    }
 
     public void putStripePublishableKey(String email) {
         Editor edit = app_prefs.edit();
@@ -57,11 +74,6 @@ public class PreferenceHelper {
     }
 
 
-    public PreferenceHelper(Context context) {
-        app_prefs = context.getSharedPreferences(Const.PREF_NAME,
-                Context.MODE_PRIVATE);
-//		this.context = context;
-    }
 
     public void putUserId(String userId) {
         Editor edit = app_prefs.edit();

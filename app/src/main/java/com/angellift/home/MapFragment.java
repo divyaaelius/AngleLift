@@ -964,7 +964,6 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
 
                     if (lineOptions != null && mMap != null) {
                         polyLine = mMap.addPolyline(lineOptions);
-
                         LatLngBounds.Builder bld = new LatLngBounds.Builder();
 
                         bld.include(markerSource.getPosition());
@@ -1142,12 +1141,10 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
                                 Const.Params.DURATION).getString(Const.Params.TEXT));
                         routeBean.setDurationValue(jObjectLegs.getJSONObject(
                                 Const.Params.DURATION).getInt(Const.Params.VALUE));
-
                         routeBean.setStartAddress(jObjectLegs
                                 .getString(Const.Params.START_ADDRESS));
                         routeBean.setEndAddress(jObjectLegs
                                 .getString(Const.Params.END_ADDRESS));
-
                         routeBean.setStartLat(jObjectLegs.getJSONObject(
                                 Const.Params.START_LOCATION).getDouble(Const.Params.LAT));
                         routeBean.setStartLon(jObjectLegs.getJSONObject(

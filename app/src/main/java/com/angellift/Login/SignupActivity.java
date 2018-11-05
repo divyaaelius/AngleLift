@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import android.widget.TextView;
 
 import com.angellift.MainActivity;
 import com.angellift.R;
+import com.angellift.invoice.InvoiceFragment;
 import com.angellift.utils.ConstMethod;
 import com.angellift.utils.FilePath;
 import com.squareup.picasso.Picasso;
@@ -49,6 +52,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                replaceFragment();
                 //Validation();
             }
         });
@@ -104,9 +108,19 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void SinupCalling() {
-        startActivity(new Intent(SignupActivity.this, MainActivity.class));
+
+        replaceFragment();
+        //  startActivity(new Intent(SignupActivity.this, MainActivity.class));
     }
 
+
+    public void replaceFragment() {
+        OtpFragment inFrag = new OtpFragment();
+        FragmentManager fragmanager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmanager.beginTransaction();
+        fragmentTransaction.replace(R.id.content_frame_otp, inFrag, "");
+        fragmentTransaction.commitAllowingStateLoss();
+    }
 
     private void init() {
 

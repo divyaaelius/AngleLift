@@ -124,6 +124,10 @@
     <string name="Success">Success</string>
     <string name="Loading">Loading</string>
 
+    <string name="otp">Otp</string>
+    <string name="done">Done</string>
+    <string name="resend">Resend</string>
+
     // changes
    <!-- <string name="timeonly">Time</string>
     <string name="fair_estimate">Fair Estimate</string>`

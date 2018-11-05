@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/otp_fram"
+    android:layout_height="match_parent"
+    android:background="@drawable/angel_bg"
+    tools:context=".Login.OtpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/general_padding_30"
+        android:orientation="vertical"
+        android:padding="@dimen/general_padding_15">
+
+        <EditText
+            android:id="@+id/edt_otp_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_padding_15"
+            android:background="@drawable/edt_back_des"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/otp"
+            android:inputType="number"
+            android:maxLength="4"
+            android:padding="@dimen/general_padding_5"
+            android:textSize="16.0sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/general_padding_30"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/otp_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/general_padding_5"
+                android:layout_weight="0.5"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_yellow"
+                android:text="@string/done" />
+
+            <Button
+                android:id="@+id/otp_resend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/general_padding_5"
+                android:layout_marginTop="@dimen/general_padding_15"
+                android:layout_weight="0.5"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_yellow"
+                android:text="@string/resend" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>
