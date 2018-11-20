@@ -330,7 +330,7 @@ public class ConstMethod {
 
                     formattedDayOfMonth = "0" + dayOfMonth;
                 }
-                date.setText(year + "/" + formattedMonth + "/" + formattedDayOfMonth);
+                date.setText(year + "-" + formattedMonth + "-" + formattedDayOfMonth);
 
                 // date.setText("" + dayOfMonth + "-" + month + "-" + year);
             }

@@ -19,6 +19,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -28,13 +29,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
+import com.angellift.Login.LoginActivity;
 import com.angellift.home.MapFragment;
 import com.angellift.invoice.InvoiceFragment;
 import com.angellift.job.JobFragment;
+import com.angellift.settings.SettingsActivity;
 import com.angellift.settings.SettingsFragment;
 import com.angellift.utils.Const;
 import com.angellift.utils.ConstMethod;
+import com.angellift.utils.PreferenceHelper;
 import com.infideap.drawerbehavior.AdvanceDrawerLayout;
 
 import static com.angellift.utils.Const.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
@@ -42,10 +47,12 @@ import static com.angellift.utils.Const.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    String TAG="MainActivity";
     boolean isGpsDialogShowing = false;
     private LocationManager manager;
     AlertDialog gpsAlertDialog;
     private AdvanceDrawerLayout drawer;
+    TextView drw_home,drw_triphist,drw_payments,drw_promocode,drw_setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +99,60 @@ public class MainActivity extends AppCompatActivity
             ConstMethod.NetworkAlert(this);
 
         }
+
+        Log.e(TAG,"Token Form received-------------->"+new PreferenceHelper(MainActivity.this).getDeviceToken());
+
+        drawerClick();
+    }
+
+    private void drawerClick() {
+        drw_home=findViewById(R.id.drw_home);
+        drw_setting=findViewById(R.id.drw_setting);
+        drw_promocode=findViewById(R.id.drw_promocode);
+        drw_payments=findViewById(R.id.drw_payments);
+        drw_triphist=findViewById(R.id.drw_triphist);
+
+        drw_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MapFragment settFrag=new MapFragment();
+                replaceFragment(settFrag);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        drw_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* SettingsFragment settFrag=new SettingsFragment();
+                replaceFragment(settFrag);*/
+               startActivity(new Intent(MainActivity.this,SettingsActivity.class));
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        drw_promocode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SettingsFragment settFrag=new SettingsFragment();
+                replaceFragment(settFrag);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        drw_payments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SettingsFragment settFrag=new SettingsFragment();
+                replaceFragment(settFrag);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        drw_triphist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SettingsFragment settFrag=new SettingsFragment();
+                replaceFragment(settFrag);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
 
 
     }
@@ -166,7 +227,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.action_settings) {
+            logout();
             // Handle the camera action
         } else if (id == R.id.nav_rides) {
             JobFragment settFrag=new JobFragment();
@@ -190,7 +252,11 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
+    public void logout() {
+        new PreferenceHelper(this).putLogin(false);
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
     public void replaceFragment( Fragment fragTmp) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();

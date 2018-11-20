@@ -14,9 +14,27 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    //22/10/18
+    <!--shivani 14/11/18-->
+    <string name="update">Update</string>
+    <string name="membership">Membership</string>
+    <string name="schedualtrip">Schedule Trip</string>
+
+
+    //shivani 13/11/18
+    <string name="please_wait">Please Wait</string>
+    <string name="con_pass">Confirm Password</string>
+    <string name="old_pass">Old Password</string>
+    <string name="new_pass">New Password</string>
+    <string name="change">Change</string>
 
     <string name="action_right_drawer">Right Drawer</string>
+    <string name="your_ride">Your Rides</string>
+    <string name="payments">Payments</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="change_pass">Change Password</string>
+    <string name="share_promocode">Share PromoCode</string>
+
 
     //shivani 24/09/2018
     <string name="mobile">Mobile No.</string>
@@ -35,7 +53,6 @@
 
     <string name="order">Order Now</string>
     <string name="cars">Cars</string>
-    <string name="payments">Payments</string>
     <string name="pickup">Pick Date &amp; Time</string>
     <string name="date">Pick Date</string>
     <string name="time">Pick Time</string>
@@ -114,27 +131,26 @@
     <string name="address">Address</string>
     <string name="dob"> Date of Birth</string>
     <string name="eta">ETA</string>
-    <string name="promo_code"> Code</string>
+    <string name="promo_code">Promo Code</string>
 
 
     // shivani 19/10/2018
     <string name="timeonly">Time</string>
-    <string name="fair_estimate">Fair Estimate</string>`
-    <string name="fair_distance">Fair Distance</string>
+    <string name="fair_estimate">Estimate</string>`
+    <string name="fair_distance">Distance</string>
     <string name="Success">Success</string>
     <string name="Loading">Loading</string>
 
-    <string name="otp">Otp</string>
+    <string name="otp">Enter Otp</string>
     <string name="done">Done</string>
     <string name="resend">Resend</string>
 
     // changes
-   <!-- <string name="timeonly">Time</string>
+    <!-- <string name="timeonly">Time</string>
     <string name="fair_estimate">Fair Estimate</string>`
     <string name="fair_distance">Fair Distance</string>
     <string name="Success">Success</string>
     <string name="Loading">Loading</string>-->
-
 
 
 </resources>

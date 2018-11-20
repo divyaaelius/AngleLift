@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "794140203410",
+    "firebase_url": "https://anglesliftclient.firebaseio.com",
+    "project_id": "anglesliftclient",
+    "storage_bucket": "anglesliftclient.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794140203410:android:c54461447090800c",
+        "android_client_info": {
+          "package_name": "com.angellift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794140203410-66kqcbkdbm4nhub4svl89r8k64j1i69e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPcxN0HcHsyI22ExMbdSV_Fm0uasb_aWI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

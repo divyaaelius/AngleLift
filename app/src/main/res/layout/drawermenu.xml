@@ -1,55 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/nav_header_main"/>
+    <include layout="@layout/nav_header_main" />
 
     <TextView
-        android:padding="@dimen/general_padding_10"
+        android:id="@+id/drw_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textSize="@dimen/font_18"
-        />
-    
-    <TextView
+        android:drawableLeft="@drawable/home"
+        android:drawablePadding="@dimen/general_padding_10"
         android:padding="@dimen/general_padding_10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="@string/home"
-        android:textSize="@dimen/font_18"/>
+        android:textSize="@dimen/font_18" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorgainsboro"/>
 
     <TextView
-        android:padding="@dimen/general_padding_10"
+        android:id="@+id/drw_triphist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textSize="@dimen/font_18"/>
-
+        android:drawableLeft="@drawable/car"
+        android:drawablePadding="@dimen/general_padding_10"
+        android:padding="@dimen/general_padding_10"
+        android:text="@string/your_ride"
+        android:textSize="@dimen/font_18" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorgainsboro"/>
     <TextView
-        android:padding="@dimen/general_padding_10"
+        android:id="@+id/drw_payments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textSize="@dimen/font_18"/>
-
+        android:drawableLeft="@drawable/coin"
+        android:drawablePadding="@dimen/general_padding_10"
+        android:padding="@dimen/general_padding_10"
+        android:text="@string/payments"
+        android:textSize="@dimen/font_18" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorgainsboro"/>
     <TextView
-        android:padding="@dimen/general_padding_10"
+        android:id="@+id/drw_promocode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textSize="@dimen/font_18"/>
-
+        android:drawableLeft="@drawable/notes"
+        android:drawablePadding="@dimen/general_padding_10"
+        android:padding="@dimen/general_padding_10"
+        android:text="@string/share_promocode"
+        android:textSize="@dimen/font_18" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorgainsboro"/>
     <TextView
-        android:padding="@dimen/general_padding_10"
+        android:id="@+id/drw_membership"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home"
-        android:textSize="@dimen/font_18"/>
+        android:drawableLeft="@drawable/group"
+        android:drawablePadding="@dimen/general_padding_10"
+        android:padding="@dimen/general_padding_10"
+        android:text="@string/membership"
+        android:textSize="@dimen/font_18" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorgainsboro"/>
+    <TextView
+        android:id="@+id/drw_schedualtrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/date"
+        android:drawablePadding="@dimen/general_padding_10"
+        android:padding="@dimen/general_padding_10"
+        android:text="@string/schedualtrip"
+        android:textSize="@dimen/font_18" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorgainsboro"/>
+    <TextView
+        android:id="@+id/drw_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/settings"
+        android:drawablePadding="@dimen/general_padding_10"
+        android:padding="@dimen/general_padding_10"
+        android:text="@string/settings"
+        android:textSize="@dimen/font_18" />
 
 
 </LinearLayout>

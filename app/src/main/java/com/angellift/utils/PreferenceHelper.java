@@ -38,24 +38,112 @@ public class PreferenceHelper {
     private final String TIME_ZONE = "time_zone";
     private final String START_TIME = "start_time";
     private final String CURRENT_TRIP_TIME = "time";
-    private final String STRIPE_PUBLISHABLE_KEY="stripe_publishable_key";
-    private final String BROWSER_KEY="browser_key";
-    private final String OTP_NUMBER="otp_number";
+    private final String STRIPE_PUBLISHABLE_KEY = "stripe_publishable_key";
+    private final String BROWSER_KEY = "browser_key";
+    private final String OTP_NUMBER = "otp_number";
+
+    private final String CREATEDBYUSERID = "c_createbyuserid";
+    private final String USER_NAME = "username";
+    private final String ISLOGIN = "isLogin";
+    private final String TOKEN = "token_id";
+    private final String FIRST_NAME = "first_name";
+    private final String USER_DETAILS_ID = "c_userdetails_id";
+    private final String PROFILE_IMAGE = "c_image";
+
+    private final String ROLE_ID = "role_id";
+
 
     public PreferenceHelper(Context context) {
         app_prefs = context.getSharedPreferences(Const.PREF_NAME,
                 Context.MODE_PRIVATE);
 //		this.context = context;
     }
-    public void setOtpnumber(String otpnumber)
-    {
-        Editor edit=app_prefs.edit();
-        edit.putString(OTP_NUMBER,otpnumber);
+
+    public String getROLE_ID() {
+        return app_prefs.getString(ROLE_ID, null);
+    }
+
+    public void putROLE_ID(String role_id) {
+        Editor edit = app_prefs.edit();
+        edit.putString(ROLE_ID, role_id);
         edit.commit();
     }
-    public String getOtpNumber()
-    {
-        return app_prefs.getString(OTP_NUMBER,"");
+
+    public String getCREATEDBYUSERID() {
+        return  app_prefs.getString(CREATEDBYUSERID, null);
+    }
+
+    public void putCreatedByUserId(String createdByUSerID) {
+        Editor edit = app_prefs.edit();
+        edit.putString(CREATEDBYUSERID, createdByUSerID);
+        edit.commit();
+    }
+
+    public String getUSER_NAME() {
+        return app_prefs.getString(USER_NAME, null);
+    }
+
+    public void putUsername(String username) {
+        Editor edit = app_prefs.edit();
+        edit.putString(USER_NAME, username);
+        edit.commit();
+    }
+
+    public boolean getLogin() {
+        return app_prefs.getBoolean(ISLOGIN, false);
+
+    }
+
+    public void putLogin(boolean login) {
+        Editor edit = app_prefs.edit();
+        edit.putBoolean(ISLOGIN, login);
+        edit.commit();
+    }
+
+
+    public String getTOKEN() {
+        return TOKEN;
+    }
+
+    public void putTOKEN(String token) {
+        Editor edit = app_prefs.edit();
+        edit.putString(TOKEN, token);
+        edit.commit();
+    }
+
+    public String getFIRST_NAME() {
+        return  app_prefs.getString(FIRST_NAME, null);
+    }
+
+    public void putFIRST_NAME(String first_name) {
+        Editor edit = app_prefs.edit();
+        edit.putString(FIRST_NAME, first_name);
+        edit.commit();
+    }
+
+    public String getUSER_DETAILS_ID() {
+        return  app_prefs.getString(USER_DETAILS_ID, null);
+    }
+
+    public void putUserDetailId(String user_details_id) {
+        Editor edit = app_prefs.edit();
+        edit.putString(USER_DETAILS_ID, user_details_id);
+        edit.commit();
+    }
+
+    public String getPROFILE_IMAGE() {
+        return PROFILE_IMAGE;
+    }
+
+
+    public void setOtpnumber(String otpnumber) {
+        Editor edit = app_prefs.edit();
+        edit.putString(OTP_NUMBER, otpnumber);
+        edit.commit();
+    }
+
+    public String getOtpNumber() {
+        return app_prefs.getString(OTP_NUMBER, "");
     }
 
     public void putStripePublishableKey(String email) {
@@ -67,6 +155,7 @@ public class PreferenceHelper {
     public String getStripePublishableKey() {
         return app_prefs.getString(STRIPE_PUBLISHABLE_KEY, null);
     }
+
     public void putBrowserKey(String email) {
         Editor edit = app_prefs.edit();
         edit.putString(BROWSER_KEY, email);
@@ -75,11 +164,6 @@ public class PreferenceHelper {
 
 
 
-    public void putUserId(String userId) {
-        Editor edit = app_prefs.edit();
-        edit.putString(USER_ID, userId);
-        edit.commit();
-    }
 
     public void putEmail(String email) {
         Editor edit = app_prefs.edit();
@@ -148,6 +232,11 @@ public class PreferenceHelper {
     public String getUserId() {
         return app_prefs.getString(USER_ID, null);
 
+    }
+    public void putUserId(String userId) {
+        Editor edit = app_prefs.edit();
+        edit.putString(USER_ID, userId);
+        edit.commit();
     }
 
     public void putDeviceToken(String deviceToken) {
@@ -354,7 +443,7 @@ public class PreferenceHelper {
         putSessionToken(null);
         putSocialId(null);
         putClientDestination(null);
-    //    putLoginBy(Const.MANUAL);
+        //    putLoginBy(Const.MANUAL);
         app_prefs.edit().clear();
     }
 

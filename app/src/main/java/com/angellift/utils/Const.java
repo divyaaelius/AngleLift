@@ -11,6 +11,8 @@ public class Const {
     public static final long TIME_SCHEDULE = 20 * 1000;
     public static final long DELAY = 0 * 1000;
 
+    // mobile type
+    public static final int MOBILETYPE = 1;
     // no request id
     public static final int NO_REQUEST = -1;
     public static final int NO_TIME = -1;
@@ -21,10 +23,93 @@ public class Const {
     public static final String URL = "url";
 
     public class UrlClient {
+        public static final String BASE_URL = "http://192.168.137.6/angellift/index.php/api/";
+        public static final String REGISTER_URL = BASE_URL+"Client_register_api/index";
+        public static final String LOGIN_URL = BASE_URL+"Login_module_api/client";
+        public static final String CHANGE_PASSWORD_URL = BASE_URL+"Change_password_api/";
+        public static final String GET_PROFILE_DATA_URL = BASE_URL+"profile/Profile_api/index/";
+        public static final String SET_PROFILE_DATA_URL = BASE_URL+"profile/Profile_edit_api/index/";
+        public static final String REQUEST_RIDE_NOW_URL = BASE_URL+"Request_create_api/index";
+        public static final String SCHEDULE_REQUEST_RIDE_NOW_URL = BASE_URL+"Request_future_api/index";
 
     }
 
     public class Params {
+
+        // request schedule for ride
+        public static final String FR_USERID="fr_userid";
+        public static final String FR_CURRENT_LATITUDE="fr_current_latitude";
+        public static final String FR_CURRENT_LONGITUDE="fr_current_longitude";
+        public static final String FR_PAYMENT_TYPE="fr_payment_type";
+        public static final String FR_PROMO_CODE="fr_promo_code";
+        public static final String FR_PICKUP_ADDRESS="fr_pickup_address";
+        public static final String FR_DESTINATION_ADDRESS="fr_destination_address";
+        public static final String FR_DESTINATION_LATITUDE="fr_destination_latitude";
+        public static final String FR_DESTINATION_LONGITUDE="fr_destination_longitude";
+        public static final String FR_START_DATE="fr_start_date";
+        public static final String FR_TIMEZONE="fr_timezone";
+        public static final String FR_ANGEL_TYPE="fr_angel_type";
+        public static final String FR_CREATEBYID="fr_createbyid";
+
+        // request for ride
+        public static final String RQ_USERID="rq_userid";
+        public static final String RQ_CURRENT_LATITUDE="rq_current_latitude";
+        public static final String RQ_CURRENT_LONGITUDE="rq_current_longitude";
+        public static final String RQ_PAYMENT_TYPE="rq_payment_type";
+        public static final String RQ_PROMO_CODE="rq_promo_code";
+        public static final String RQ_PICKUP_ADDRESS="rq_pickup_address";
+        public static final String RQ_DESTINATION_ADDRESS="rq_destination_address";
+        public static final String RQ_DESTINATION_LATITUDE="rq_destination_latitude";
+        public static final String RQ_DESTINATION_LONGITUDE="rq_destination_longitude";
+        public static final String RQ_CURRENT_DATE="rq_current_date";
+        public static final String RQ_TIMEZONE="rq_timezone";
+        public static final String RQ_ANGEL_TYPE="rq_angel_type";
+        public static final String RQ_CREATEBYID="rq_createbyid";
+        public static final String RQ_TIME="rq_time";
+
+        // request responce
+        public static final String REQUEST_ID="request_id";
+
+
+
+
+        // get profile data
+        public static final String PROFILEDETAILS="profiledetails";
+        public static final String PROFILE_UPDATE="profile_update";
+
+        // change password
+        public static final String OLD="old";
+        public static final String NEW="new";
+        public static final String NEW_CONFIRM="new_confirm";
+        public static final String USER_ID="user_id";
+        // Register 12/11/18
+        public static final String C_ID = "c_id";
+        public static final String C_MOBILENO = "c_mobileno";
+        public static final String C_NAME = "c_name";
+        public static final String C_ADDRESS = "c_address";
+        public static final String C_DOB = "c_dob";
+        public static final String MOBILE_TYPE = "mobile_type";
+        public static final String C_IMAGE = "c_image";
+
+        // login
+        public static final String IDENTITY = "identity";
+        public static final String MOBILE_DEVICE_ID = "mobile_device_id";
+        public static final String MOBILE_TOKEN = "mobile_token";
+
+        // login response
+        public static final String TRUE = "true";
+        public static final String STATUS = "status";
+        public static final String DATA = "data";
+        public static final String ID = "id";
+        public static final String USERNAME = "username";
+        public static final String EMAIL = "email";
+        public static final String FIRST_NAME = "first_name";
+        public static final String C_CREATEBYUSERID = "c_createbyuserid";
+        public static final String TOKEN_ID = "token_id";
+        public static final String ROLE_ID = "role_id";
+        public static final String C_USERDETAILS_ID = "c_userdetails_id";
+
+
         public static final String ROUTES = "routes";
         public static final String LEGS = "legs";
         public static final String TEXT = "text";
@@ -50,7 +135,7 @@ public class Const {
 
         public static final String CLIENT_ID = "client_id";
         public static final String TOKEN = "token";
-        public static final String EMAIL = "email";
+
         public static final String CLIENT_NAME = "client_name";
         public static final String ADDRESS = "address";
         public static final String DOB = "dob";
@@ -84,7 +169,7 @@ public class Const {
         public static final String DRIVER_LATITUDE = "driver_latitude";
         public static final String DRIVER_LONGITUDE = "driver_longitude";
 
-        public static final String REQUEST_ID = "request_id";
+
         public static final String KMS = "kms";
 
         public static final String ANGEL_TYPE = "angel_type";
@@ -122,7 +207,6 @@ public class Const {
         public final String IS_WALK_STARTED = "is_walk_started";
         public final String IS_WALKER_RATED = "is_walker_rated";
         public final String IS_COMPLETED = "is_completed";
-        public final String STATUS = "status";
         public final String CONFIRMED_WALKER = "confirmed_walker";
 
         public final String PAYMENT_TYPE = "payment_type";

@@ -1,64 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/otp_fram"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/angel_bg"
+    android:background="@color/colorAccent"
     tools:context=".Login.OtpFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/general_padding_30"
-        android:orientation="vertical"
-        android:padding="@dimen/general_padding_15">
+        android:layout_margin="@dimen/general_padding_10"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edt_otp_no"
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/general_padding_15"
-            android:background="@drawable/edt_back_des"
-            android:fontFamily="sans-serif-light"
-            android:hint="@string/otp"
-            android:inputType="number"
-            android:maxLength="4"
-            android:padding="@dimen/general_padding_5"
-            android:textSize="16.0sp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textStyle="normal" />
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            custom:cardCornerRadius="@dimen/general_padding_10">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/general_padding_30"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/otp_submit"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/general_padding_5"
-                android:layout_weight="0.5"
-                android:textColor="@color/black"
-                android:background="@drawable/btn_yellow"
-                android:text="@string/done" />
+                android:layout_marginLeft="@dimen/marg_fivedp"
+                android:layout_marginTop="@dimen/general_height_20"
+                android:layout_marginRight="@dimen/marg_fivedp"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/otp_resend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/general_padding_5"
-                android:layout_marginTop="@dimen/general_padding_15"
-                android:layout_weight="0.5"
-                android:textColor="@color/black"
-                android:background="@drawable/btn_yellow"
-                android:text="@string/resend" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/general_padding_10"
+                    android:layout_marginTop="@dimen/general_padding_15"
+                    android:layout_marginRight="@dimen/general_padding_10"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:text="OTP"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
 
-        </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_margin="1dp"
+                            android:background="@drawable/state_pressed_rectangle"
+                            android:orientation="horizontal"
+                            android:paddingLeft="60dp">
+
+                            <EditText
+                                android:id="@+id/edt_otp_no"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_margin="@dimen/marg_fivedp"
+                                android:layout_toRightOf="@+id/imgSrc"
+                                android:background="@color/transparent"
+                                android:hint="@string/otp"
+                                android:inputType="number"
+                                android:maxLength="4"
+                                android:paddingLeft="@dimen/marg_tendp"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black"
+                                android:textSize="16.0sp"
+                                android:textStyle="normal" />
+
+                            <requestFocus />
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/imgSrc"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:background="@drawable/state_pressed_ripple"
+                            android:gravity="center"
+                            android:src="@drawable/user"
+                            android:text="@string/icon_location"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font_16" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/general_padding_30"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/otp_submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/general_padding_5"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/btn_yellow"
+                        android:text="@string/done"
+                        android:textColor="@color/white" />
+
+                    <Button
+                        android:id="@+id/otp_resend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/general_padding_5"
+                        android:layout_marginTop="@dimen/general_padding_15"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/btn_yellow"
+                        android:text="@string/resend"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
 
     </LinearLayout>
 

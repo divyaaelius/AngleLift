@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000000</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#000000</color>
+    <color name="colorPrimary">#33E06C</color>
+    <color name="colorPrimaryDark">#33E06C</color>
+    <color name="colorAccent">#33E06C</color>
 
     <!--shivani 24/09/2018-->
     <color name="primary_tint">#ff3bb6eb</color>
@@ -12,6 +12,7 @@
     <color name="bg_walking_directions_button">#ddffffff</color>
     <color name="grey_lines">#ffc4c4c4</color>
     <color name="grey_10_alpha">#1a000000</color>
+    <color name="color_primary_alpha">#ab33e06c</color>
 
     <!--shivani 25/08/2018-->
     <color name="grey_40_alpha">#65000000</color>

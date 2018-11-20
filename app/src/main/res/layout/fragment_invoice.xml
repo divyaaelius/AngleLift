@@ -116,7 +116,7 @@
                     <ImageView
                         android:layout_width="40.0dip"
                         android:layout_height="40.0dip"
-                        android:background="@color/black"
+                        android:background="@color/colorPrimary"
                         android:padding="@dimen/general_padding_10"
                         android:src="@drawable/ic_near_me"
                         android:text="@string/icon_location"
@@ -155,7 +155,7 @@
                     <ImageView
                         android:layout_width="40.0dip"
                         android:layout_height="40.0dip"
-                        android:background="@color/black"
+                        android:background="@color/colorPrimary"
                         android:padding="@dimen/general_padding_10"
                         android:src="@drawable/ic_location"
                         android:text="@string/icon_location"
@@ -285,9 +285,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
         android:layout_margin="@dimen/general_padding_15"
         android:text="@string/payments"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 </LinearLayout>
 
 

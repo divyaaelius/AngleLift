@@ -1,115 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="-200dp"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/general_padding_10"
-        android:gravity="center"
-        android:orientation="vertical">
+    android:layout_margin="@dimen/general_padding_20"
+    custom:cardCornerRadius="@dimen/general_padding_20">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/general_padding_20"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/general_padding_10"
+            android:gravity="center"
             android:orientation="vertical">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
-                android:foreground="?android:selectableItemBackground"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/general_padding_10">
+                android:layout_margin="@dimen/general_padding_20"
+                android:orientation="vertical">
 
-
-                <TextView
-                    android:id="@+id/mypickloc"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/general_padding_30"
-                    android:gravity="center"
-                    android:hint="@string/pick"
-                    android:paddingLeft="@dimen/general_padding_20"
-                    android:paddingRight="@dimen/general_padding_20"
-                    android:text="@string/pick"
-                    android:textColor="@color/white"
-                   />
-
-                <ImageView
-                    android:layout_width="40.0dip"
-                    android:layout_height="40.0dip"
-                    android:background="@color/black"
-                    android:gravity="center"
-                    android:padding="@dimen/general_padding_10"
-                    android:src="@drawable/ic_location"
-                    android:text="@string/icon_location"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/font_16" />
-
-                <TextView
-                    android:id="@+id/driverDropLoc"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:hint="@string/drop"
-                    android:paddingLeft="@dimen/general_padding_20"
-                    android:paddingRight="@dimen/general_padding_20"
-                    android:text="@string/drop"
-                    android:textColor="@color/white"
-                    >
-
-                </TextView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/general_padding_20"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:hint="@string/drop"
-                    android:padding="@dimen/general_padding_20"
-                    android:paddingLeft="@dimen/general_padding_20"
-                    android:paddingRight="@dimen/general_padding_20"
-                    android:text="@string/fair_estimate"
-                    android:textColor="@color/black" />
-
-                <View
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/general_padding_20"
-                    android:layout_marginBottom="@dimen/general_padding_20"
-                    android:background="@color/gray" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:foreground="?android:selectableItemBackground"
+                    android:background="@drawable/edt_back_des"
+                    android:backgroundTint="@color/gray"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/general_padding_10">
+
+
+                    <TextView
+                        android:id="@+id/mypickloc_confime_dialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minLines="2"
+                        android:scrollbars = "vertical"
+                        android:hint="@string/pick"
+                        android:textColorHint="@color/black"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:layout_width="2dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@color/dark_grey_blue_30"
+                        android:gravity="center"
+                        android:padding="@dimen/general_padding_10" />
+
+                    <TextView
+                        android:id="@+id/driverDropLoc_confime_dialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textColorHint="@color/black"
+                        android:hint="@string/drop"
+                        android:minLines="2"
+                        android:textColor="@color/white">
+
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/general_padding_20"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/rs_confrim_dialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:drawableRight="@drawable/user"
+                        android:gravity="center"
+                        android:hint="100 rs"
+                        android:padding="@dimen/general_padding_10"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+
+                    <TextView
+                        android:id="@+id/time_confrim_dialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="2 hr"
+                        android:padding="@dimen/general_padding_10"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+
+                    <TextView
+                        android:id="@+id/distance_confrim_dialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="50 km."
+                        android:padding="@dimen/general_padding_10"
+                        android:textColor="@color/black"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="@string/drop"
+                        android:padding="@dimen/general_padding_10"
+                        android:text="@string/fair_estimate"
+                        android:textColor="@color/black" />
 
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:hint="@string/drop"
                         android:padding="@dimen/general_padding_10"
@@ -120,6 +144,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:hint="@string/rs"
                         android:padding="@dimen/general_padding_10"
@@ -135,22 +160,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/general_padding_20"
-                android:background="@color/black"
+                android:layout_marginBottom="@dimen/general_padding_15"
+                android:layout_marginLeft="@dimen/general_padding_10"
+                android:layout_marginTop="@dimen/general_padding_10"
+                android:layout_marginRight="@dimen/general_padding_10"
+                android:background="@drawable/btn_yellow"
+                android:padding="@dimen/general_padding_5"
                 android:text="@string/confirm"
                 android:textColor="@color/white"
-               android:textStyle="bold" />
+                android:textStyle="bold" />
 
         </LinearLayout>
-    </LinearLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/general_padding_5"
-        android:src="@drawable/ic_car" />
-
-</RelativeLayout>
+</android.support.v7.widget.CardView>

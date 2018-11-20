@@ -3,18 +3,22 @@ package com.angellift.home;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
@@ -39,11 +43,13 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.angellift.AsynceTask.ServiceAsync;
 import com.angellift.MainActivity;
 import com.angellift.R;
 import com.angellift.home.adapter.PlacesAutoCompleteAdapter;
 import com.angellift.home.model.Route;
 import com.angellift.home.model.Step;
+import com.angellift.job.JobFragment;
 import com.angellift.parse.AsyncTaskCompleteListener;
 import com.angellift.parse.HttpRequester;
 import com.angellift.parse.ParseContent;
@@ -82,8 +88,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -108,6 +116,10 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
     private Marker markerDestination, markerSource;
     LatLng destlatLang = new LatLng(21.5222,
             70.4579);
+    int isSchedule=0;
+    String deslat = "21.5222", desLong = "70.4579";
+
+    String currentLati, currentLoni;
     Route route;
     private ArrayList<LatLng> points;
     private PolylineOptions lineOptions;
@@ -180,7 +192,7 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
         slidingDrawer = view.findViewById(R.id.slidingDrawer);
         booking = view.findViewById(R.id.booking);
         cars = view.findViewById(R.id.cars);
-        //  pickuptime = view.findViewById(R.id.pickuptime);
+        pickuptime = view.findViewById(R.id.pickuptime);
         payment = view.findViewById(R.id.payment);
         pickuptime = view.findViewById(R.id.pickuptime);
         showpayment_type = view.findViewById(R.id.showpayment_type);
@@ -360,6 +372,7 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
         final View promptView = layoutInflater.inflate(R.layout.payment_view_dialog, null);
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
         alertDialogBuilder.setView(promptView);
+        promptView.setBackgroundResource(android.R.color.transparent);
         // setup a dialog window
         alertDialogBuilder.setCancelable(true);
         LinearLayout cash = promptView.findViewById(R.id.by_cash);
@@ -575,6 +588,10 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
             // isLocationEnable = true;
             LatLng latLang = new LatLng(location.getLatitude(),
                     location.getLongitude());
+
+            currentLati = String.valueOf(location.getLatitude());
+            currentLoni = String.valueOf(location.getLongitude());
+
             curretLatLng = latLang;
             Log.d(TAG, "*** onConntected curretLatLng" + curretLatLng);
             setMarker(curretLatLng, true);
@@ -878,6 +895,10 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
 
                     ConstMethod.showToast(activity,
                             "start time " + startTime);
+                    isSchedule=1;
+                    OpenDialog();
+
+
                    /* activity.pHelper.putStartTime(startTime);
                     Calendar cal = Calendar.getInstance();
                     TimeZone timeZone = cal.getTimeZone();
@@ -1540,11 +1561,19 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
                 .setMinScale(0.8f)
                 .build());
     }
-
+    /***
+     *
+     * dialog for confrime rquest
+     *
+     ***/
     private void OpenDialog() {
+        if(isSchedule==1) {
+            scheduleDialog.dismiss();
+        }
         // get prompts.xml view
         LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
         final View promptView = layoutInflater.inflate(R.layout.conform_dialog, null);
+        promptView.setBackgroundResource(android.R.color.transparent);
 
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
 
@@ -1552,6 +1581,13 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
         alertDialogBuilder.setView(promptView);
         // setup a dialog window
         alertDialogBuilder.setCancelable(true);
+
+        // set text view
+        final TextView mypickloc = promptView.findViewById(R.id.mypickloc_confime_dialog);
+        final TextView driverDropLoc = promptView.findViewById(R.id.driverDropLoc_confime_dialog);
+
+        mypickloc.setText("Panchnath, Harihar choke, Rajkot, 360001, Gujarat, India");
+        driverDropLoc.setText("Jayshree Rd, Joshipura, Junagadh, Gujarat 362001, India");
 
         // sliding button
         btn_dialog_conform.setOnClickListener(new View.OnClickListener() {
@@ -1561,6 +1597,17 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
                 // vibrate the device
                 Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(100);
+
+                String picadd = mypickloc.getText().toString();
+                String dropadd = driverDropLoc.getText().toString();
+
+                if(isSchedule==1){
+
+                    RequestScheduleTripApi(picadd,dropadd);
+
+                }else {
+                    RequestApiCalling(picadd, dropadd);
+                }
                 alv.dismiss();
 
             }
@@ -1570,6 +1617,144 @@ public class MapFragment extends Fragment implements DiscreteScrollView.ScrollSt
         // create an alert dialog
         alv = alertDialogBuilder.create();
         alv.show();
+
+    }
+    /***
+     *
+     * Schedule trip request
+     *
+     ***/
+    private void RequestScheduleTripApi(String picadd, String dropadd) {
+        final ProgressDialog myDialog = ConstMethod.showProgressDialog(getContext(), getResources().getString(R.string.please_wait));
+
+        String id = new PreferenceHelper(getContext()).getUserId();
+
+        Uri.Builder builder = new Uri.Builder();
+        builder.appendQueryParameter(Const.Params.FR_USERID, id);
+        builder.appendQueryParameter(Const.Params.FR_CURRENT_LATITUDE, currentLati);
+        builder.appendQueryParameter(Const.Params.FR_CURRENT_LONGITUDE, currentLoni);
+        builder.appendQueryParameter(Const.Params.FR_PAYMENT_TYPE, String.valueOf(payment_type));
+        builder.appendQueryParameter(Const.Params.FR_PROMO_CODE, "");
+        builder.appendQueryParameter(Const.Params.FR_PICKUP_ADDRESS, picadd);
+        builder.appendQueryParameter(Const.Params.FR_DESTINATION_ADDRESS, dropadd);
+        builder.appendQueryParameter(Const.Params.FR_DESTINATION_LATITUDE, deslat);
+        builder.appendQueryParameter(Const.Params.FR_DESTINATION_LONGITUDE, desLong);
+        builder.appendQueryParameter(Const.Params.FR_START_DATE, selectedDate);
+        builder.appendQueryParameter(Const.Params.FR_TIMEZONE, selectedTime);
+        builder.appendQueryParameter(Const.Params.FR_ANGEL_TYPE, "1");
+        builder.appendQueryParameter(Const.Params.FR_CREATEBYID, id);
+
+        Log.e("Login url ", Const.UrlClient.SCHEDULE_REQUEST_RIDE_NOW_URL);
+        Log.e("Login parm", "param  " + builder);
+
+        new ServiceAsync(Const.UrlClient.SCHEDULE_REQUEST_RIDE_NOW_URL, new ServiceAsync.OnAsyncResult() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("JSON", "DATA " + result);
+                myDialog.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    if (jsonObject.getString(Const.Params.STATUS).equals(Const.Params.TRUE)) {
+                        //String str = jsonObject.getString("status");
+                        String request_id = jsonObject.getString(Const.Params.REQUEST_ID);
+                        Log.d(TAG, "Request id" + request_id);
+                        JobFragment fragment = new JobFragment();
+                        FragmentManager manager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction ft = manager.beginTransaction();
+                        ft.replace(R.id.content_frame, fragment, "").addToBackStack(null);
+                        ft.commitAllowingStateLoss();
+                    } else {
+                        Toast.makeText(getContext(), " please try again", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), "Incorrect Login", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(String result) {
+                myDialog.dismiss();
+                Toast.makeText(getContext(), "failed" + result, Toast.LENGTH_SHORT).show();
+            }
+
+        }, builder).execute();
+
+    }
+    /***
+     *
+     * trip request
+     *
+     ***/
+    private void RequestApiCalling(String picadd, String dropadd) {
+        final ProgressDialog myDialog = ConstMethod.showProgressDialog(getContext(), getResources().getString(R.string.please_wait));
+
+        String id = new PreferenceHelper(getContext()).getUserId();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String strDate = sdf.format(new Date());
+        Log.d(TAG, "Date ==========> " + strDate);
+
+        SimpleDateFormat stime = new SimpleDateFormat("hh:mm:ss");
+        String currentTime = stime.format(new Date());
+        Log.d(TAG, "Date ==========> " + currentTime);
+
+
+        Uri.Builder builder = new Uri.Builder();
+        builder.appendQueryParameter(Const.Params.RQ_USERID, id);
+        builder.appendQueryParameter(Const.Params.RQ_CURRENT_LATITUDE, currentLati);
+        builder.appendQueryParameter(Const.Params.RQ_CURRENT_LONGITUDE, currentLoni);
+        builder.appendQueryParameter(Const.Params.RQ_PAYMENT_TYPE, String.valueOf(payment_type));
+        builder.appendQueryParameter(Const.Params.RQ_PROMO_CODE, "");
+        builder.appendQueryParameter(Const.Params.RQ_PICKUP_ADDRESS, picadd);
+        builder.appendQueryParameter(Const.Params.RQ_DESTINATION_ADDRESS, dropadd);
+        builder.appendQueryParameter(Const.Params.RQ_DESTINATION_LATITUDE, deslat);
+        builder.appendQueryParameter(Const.Params.RQ_DESTINATION_LONGITUDE, desLong);
+        builder.appendQueryParameter(Const.Params.RQ_CURRENT_DATE, strDate);
+        builder.appendQueryParameter(Const.Params.RQ_TIMEZONE, currentTime);
+        builder.appendQueryParameter(Const.Params.RQ_ANGEL_TYPE, "1");
+        builder.appendQueryParameter(Const.Params.RQ_CREATEBYID, id);
+        builder.appendQueryParameter(Const.Params.RQ_TIME, "60");
+
+        Log.e("Login url ", Const.UrlClient.REQUEST_RIDE_NOW_URL);
+        Log.e("Login parm", "param  " + builder);
+
+        new ServiceAsync(Const.UrlClient.REQUEST_RIDE_NOW_URL, new ServiceAsync.OnAsyncResult() {
+            @Override
+            public void onSuccess(String result) {
+                Log.e("JSON", "DATA " + result);
+                myDialog.dismiss();
+                try {
+                    JSONObject jsonObject = new JSONObject(result);
+                    if (jsonObject.getString(Const.Params.STATUS).equals(Const.Params.TRUE)) {
+                        //String str = jsonObject.getString("status");
+                        String request_id = jsonObject.getString(Const.Params.REQUEST_ID);
+                        Log.d(TAG, "Request id" + request_id);
+                        JobFragment fragment = new JobFragment();
+                        FragmentManager manager = getActivity().getSupportFragmentManager();
+                        FragmentTransaction ft = manager.beginTransaction();
+                        ft.replace(R.id.content_frame, fragment, "").addToBackStack(null);
+                        ft.commitAllowingStateLoss();
+                    } else {
+                        Toast.makeText(getContext(), " please try again", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), "Incorrect Login", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(String result) {
+                myDialog.dismiss();
+                Toast.makeText(getContext(), "failed" + result, Toast.LENGTH_SHORT).show();
+            }
+
+        }, builder).execute();
 
     }
 
